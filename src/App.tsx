@@ -488,7 +488,7 @@ export default function App() {
       </div>
 
       {/* メインコンテナ（z-index: 1で前面に） */}
-      <div style={{ position: 'relative', zIndex: 1, padding: 20, maxWidth: '640px', margin: 'auto' }}>
+      <div className="main-container" style={{ position: 'relative', zIndex: 1 }}>
         <h2>絵を描いて「完成」ボタンを押すと回るし喋ります</h2>
 
         {/* 色・線・モード選択（2行に分割） */}

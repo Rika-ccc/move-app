@@ -10,19 +10,60 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body, .app-root {
+  font-family: 'Rounded Mplus 1c', 'Comic Sans MS', 'Arial Rounded MT Bold', 'Arial', sans-serif;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* h2の余白調整 */
+h2 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  font-weight: bold;
+  font-size: 1.3em;
+  letter-spacing: 1px;
+}
+
+/* スマホ用（幅600px以下）でh2余白を詰める＆キャンバス最大化 */
+@media (max-width: 600px) {
+  h2 {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  .main-container {
+    padding: 6px !important;
+    max-width: 100vw !important;
+  }
+  canvas {
+    max-width: 98vw !important;
+    height: 56vw !important;
+    min-height: 220px;
+    aspect-ratio: 3/2;
+  }
+}
+
+/* PC用（幅601px以上）は今まで通り */
+@media (min-width: 601px) {
+  .main-container {
+    padding: 20px;
+    max-width: 640px;
+    margin: auto;
+  }
+  canvas {
+    max-width: 600px;
+    height: auto;
+    aspect-ratio: 3/2;
+  }
 }
 
 /* 見出し */
@@ -179,11 +220,6 @@ input[type=range]::-moz-range-track {
   margin: 5px;
 }
 /* ==== 背景アニメーション用 ==== */
-body {
-  position: relative;
-  overflow: hidden;
-}
-
 /* 雲の共通スタイル */
 .cloud {
   position: absolute;
