@@ -1,0 +1,255 @@
+:root {
+  font-family: "Comic Sans MS", "Kosugi Maru", cursive;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* 見出し */
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+  color: #ff5e78;
+  text-shadow: 2px 2px #fff;
+}
+
+/* カード風コンテナ */
+.card {
+  background: #fff8e7;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ボタン */
+button {
+  display: inline-block;
+  background: linear-gradient(180deg, #ffb347, #ffcc33);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 1.1em;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 4px #e6a800;
+  transition: all 0.2s ease;
+}
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px #e6a800;
+}
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px #e6a800;
+}
+
+/* ボタン共通 */
+.action-btn {
+  min-width: 110px;
+  height: 36px;
+  font-size: 14px;
+  margin: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  background: #f7f7f7;
+  color: #333;
+  white-space: nowrap;
+  flex: 1 1 110px;
+  box-sizing: border-box;
+}
+
+/* 特別なボタン（色変更） */
+.special-btn {
+  background-color: rgba(242, 217, 217, 1);
+  color: white;
+}
+
+/* ボタンエリアのレイアウト */
+.button-area {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* スライダー（線の太さ）改修版 */
+input[type=range] {
+  appearance: none; /* 標準 */
+  -webkit-appearance: none; /* Safari/古いChrome用 */
+  width: 200px;
+  height: 12px;
+  background: #ddd; /* 単色トラック */
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Chrome, Safari用つまみ */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 28px;
+  width: 28px;
+  background: #fff; /* 白い丸 */
+  border: 3px solid #646cff; /* 青い枠で見やすく */
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  margin-top: -8px; /* トラック中央に配置 */
+  cursor: pointer;
+}
+
+/* Firefox用つまみ */
+input[type=range]::-moz-range-thumb {
+  height: 28px;
+  width: 28px;
+  background: #fff;
+  border: 3px solid #646cff;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  cursor: pointer;
+}
+
+/* トラック（Firefox用） */
+input[type=range]::-moz-range-track {
+  height: 12px;
+  background: #ddd;
+  border-radius: 6px;
+}
+
+
+/* ラジオボタン（例: モード切替用） */
+.radio-group {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.radio-group input[type=radio] {
+  display: none;
+}
+.radio-group label {
+  cursor: pointer;
+  font-size: 1.5em;
+}
+.radio-group input[type=radio] + label::before {
+  content: "☆";
+  font-size: 1.5em;
+  margin-right: 5px;
+  color: #bbb;
+}
+.radio-group input[type=radio]:checked + label::before {
+  content: "★";
+  color: gold;
+}
+
+/* 戻る・進む・塗りつぶしなどの機能ボタンも同じ見た目に */
+.tool-button {
+  margin: 5px;
+}
+/* ==== 背景アニメーション用 ==== */
+body {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 雲の共通スタイル */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: moveCloud linear infinite;
+}
+
+/* 雲の形を複数パーツで表現 */
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+/* 雲のアニメーション */
+@keyframes moveCloud {
+  from { transform: translateX(-200px); }
+  to   { transform: translateX(120vw); }
+}
+
+/* ===== ポップなグラデーション背景 ===== */
+body {
+  background: linear-gradient(to top, #a1c4fd, #c2e9fb); /* 水色の空っぽい背景 */
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* 雲のベース形 */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+
+/* 雲のふんわり部分 */
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 50%;
+  height: 50%;
+  top: -25%;
+  left: -25%;
+}
+
+.cloud::after {
+  width: 60%;
+  height: 60%;
+  top: -20%;
+  right: -30%;
+}
+
+/* 雲を右へ流すアニメーション */
+@keyframes moveCloud {
+  from { transform: translateX(-200px); }
+  to   { transform: translateX(120vw); }
+}
+
