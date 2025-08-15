@@ -35,8 +35,16 @@ h2 {
 
 /* スマホ用（幅600px以下）でh2余白を詰める＆キャンバス最大化 */
 @media (max-width: 600px) {
+  body, #app {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  .main-container {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
   h2 {
-    margin-top: 8px;
+    margin-top: 8px !important;
     margin-bottom: 10px;
     font-size: 1.1em;
   }
